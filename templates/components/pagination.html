@@ -1,0 +1,36 @@
+<nav class="bg-light" aria-label="Ikawe navigation">
+    <ul class="pagination justify-content-center p-4">
+    {% if page > 1 %}
+      <li class="page-item"><a class="page-link" href="?page=1">Primera</a></li>
+      <li class="page-item"><a class="page-link" href="?page={{ page - 1 }}">Atrás</a></li>
+    {% endif %}
+
+    {% for p in range(1, 10) %}
+      <li class="page-item">
+        <a href="?page={{ p }}"
+           {% if p == page %} class="page-link active" {% else %} class="page-link" {% endif %}>
+          {{ p }}
+        </a>
+      </li>
+    {% endfor %}
+
+
+    <li class="page-item disabled">
+      <a class="page-link" href="#" tabindex="-1">...</a>
+    </li>
+
+    {% for p in range(total_pages - 8 ,total_pages) %}
+      <li class="page-item">
+        <a href="?page={{ p }}"
+           {% if p == page %} class="page-link active" {% else %} class="page-link" {% endif %}>
+          {{ p }}
+        </a>
+      </li>
+    {% endfor %}
+
+    {% if page < total_pages %}
+      <li class="page-item"><a class="page-link" href="?page={{ page + 1 }}">Siguiente</a></li>
+      <li class="page-item"><a class="page-link" href="?page={{ total_pages }}">Última</a></li>
+    {% endif %}
+    </ul>
+</nav>

@@ -1,0 +1,59 @@
+
+{% if custom_navbar_style %}
+  <nav class="navbar navbar-expand-lg navbar-lightœ bg-light ikawe-navbar-light">
+{% else %}
+    <nav class="navbar navbar-expand-lg navbar-lightœ bg-light">
+{% endif %}
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{{ url_for('main') | safe }}">
+      <img src="{{ url_for('static', filename='images/logos/inscripto.svg') }}" alt="inscripto" height="48"></a>
+    {% if g.user %}
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+     {% endif %}
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        {% if g.user %}
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('dashboard_bp.page_dashboard')}}">Mi biblioteca</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="{{ url_for('dashboard_bp.page_dashboard')}}">
+              Petición de Libros (Próximamente)
+            </a>
+          </li>
+        {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('main')}}">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('signup_bp.signup')}}">Registro</a>
+          </li>
+        {% endif %}
+      </ul>
+
+      {% if g.user %}
+
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+             role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {{ g.user.username }}
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="{{ url_for('profile_bp.page_profile') }}">Perfil</a></li>
+            <li><a class="dropdown-item" href="#">Sugerencias</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="{{ url_for('login_bp.logout')}}">Salir</a></li>
+          </ul>
+        </li>
+      </ul>
+      <img src="{{ url_for('static', filename='images/avatares/avatar_2.png') }}"
+              height="34" alt="">
+    </div>
+    {% endif %}
+  </div>
+</nav>

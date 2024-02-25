@@ -1,0 +1,178 @@
+
+.ikawe-index-jumbo {
+    margin-top: -60px;
+    min-height: 50vh;
+    padding-top: 90px;
+    background-image: url(../images/page-header.jpg);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
+}
+
+.ikawe-light-jumbo {
+    background: #F5F557;
+    background: linear-gradient(127deg, #F5F557, #13C8C6);
+    padding: 100px;
+}
+
+.ikawe-elegance-jumbo {
+    background-color: #fffbf7;
+    color: black;
+    padding: 100px;
+}
+
+
+.ikawe-navbar-light {
+    background-color: #ffffffa1!important;
+    backdrop-filter: blur(3px);
+}
+
+.racoon-index-login {
+    margin-top: -20vh;
+}
+
+input::placeholder {
+  opacity: 0.3!important;
+}
+
+
+.ikake-jumbotron {
+    background: #023047;
+    height: 400px;
+    color: #fff;
+} 
+
+.ikake-jumbotron h1 {
+    font-weight: bolder;
+    margin-top: -100px;
+}
+
+.ikake-jumbotron-title {
+    height: 400px;
+    margin-top: -400px;
+    backdrop-filter: blur(20px);
+    color: #fff;
+    padding-top: 50px;
+}
+
+.ikake-jumbotron-content {
+    position: relative;
+    z-index: 99;
+}
+
+.ikake-jumbotron-books {
+    text-align: center;
+}
+
+.racoon-library {
+    background-color: #fff;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.racoon-container-library {
+    padding: 30px;
+    box-shadow: 0px 0px 18px 3px rgba(0,0,0,0.1);
+    margin-top: -180px;
+    background-color: #fff;
+}
+
+.racoon-card {
+    background: rgb(255, 255, 255);
+    border: 1px solid transparent;
+}
+
+.racoon-card:hover {
+    box-shadow: 0px 0px 18px 3px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 0px 0px 18px 3px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0px 0px 18px 3px rgba(0,0,0,0.1);
+}
+
+
+.racoon-card-header {
+    height: 320px;
+    padding-top: 20px;
+}
+
+.racoon-img-responsive{
+    height: 99%;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.racoon-card-title h5 {
+    color:#023047;
+    max-height: 75px;
+    word-break: break-word;
+}
+
+.racoon-card-title h6 {
+    color:#fb8500;
+    word-break: break-all;
+    border-bottom: 1px solid #c7c7c7;
+    padding-bottom: 10px;
+}
+
+.racoon-card-body {
+    height: 65px;
+    color: #6a6a6a;
+    font-size: small;
+}
+
+.racoon-btn-link {
+    color: #023047;
+}
+
+.racoon-btn-link:hover {
+    color: black;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.racoon-btn-success {
+    background-color: rgb(148, 255, 196);
+    color: black;
+    border-radius: 0%;
+    border: 1px solid rgb(148, 255, 196);
+}
+
+.racoon-btn-success:hover {
+    background-color: black;
+    color: white;
+    border-radius: 0%;
+    cursor: pointer;
+    border: 1px solid rgb(148, 255, 196);
+}
+
+.racoon-btn-success-light {
+    background-color: black;
+    color:  rgb(148, 255, 196);
+    border-radius: 0%;
+}
+
+.racoon-btn-success-light:hover {
+    background-color:  rgb(148, 255, 196);
+    color: black;
+    border-radius: 0%;
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.ikawe-btn-link-light {
+    color:  rgba(148, 255, 196, 0.862);
+    text-decoration: none;
+}
+
+.ikawe-btn-link-light:hover {
+    cursor: pointer;
+    color:  rgb(148, 255, 196);
+    text-decoration: underline;
+}
+
+.ikawe-badge {
+    background-color: rgb(148, 255, 196);
+    color: black;
+    border-radius: 0%;
+    font-weight: inherit;
+}

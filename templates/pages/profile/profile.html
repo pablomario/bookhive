@@ -1,0 +1,40 @@
+
+{% include "components/head.html" %}
+{% include "components/navbar.html" %}
+
+<div class="container-fluid ikake-jumbotron d-flex flex-column">
+    <div class="container d-flex flex-grow-1 justify-content-center align-items-center">
+        <h1 class="display-5">Perfil de usuario 🧙.</h1>
+    </div>
+</div>
+
+<div class="container-fluid racoon-library">
+    <div class="container p-2 racoon-container-library">
+        <div class="row p-4">
+            <center><img src="{{ url_for('static', filename='images/avatares/avatar_2.png') }}"
+              height="128" alt=""></center>
+            <form class="p-3">
+                <h4>Esto es lo que sabemos de ti <strong>{{g.user.username}}</strong> </h4>
+                <br/>
+                <div class="form-group">
+                    <label for="username">Nombre de usuario</label>
+                    <input type="text" class="form-control" name="username" id="username" value={{g.user.username}}>
+                    <small id="user_usernameHelp" class="form-text text-muted">Puedes cambiarlo en cualquier momento.</small>
+                </div>
+                <br/>
+                 <div class="form-group">
+                    <label for="email">Correo electronico</label>
+                    <input type="email" class="form-control" id="email" value={{g.user.email}}>
+                     <small id="user_emailHelp" class="form-text text-muted">Puedes cambiarlo en cualquier momento.</small>
+                </div>
+                <div class="row p-4">
+                    <a class="btn racoon-btn-success" href="#"> Actualizar perfil </a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% include "components/footer.html" %}

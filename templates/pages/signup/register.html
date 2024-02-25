@@ -1,0 +1,71 @@
+
+{% include "components/head.html" %}
+{% include "components/navbar.html" %}
+
+
+<div class="container" style="min-height: 90vh;">
+    <div class="row p-3">
+        <div class="col"> </div>
+        <div class="col-5">
+
+            <form method="POST" action="{{ url_for('signup_bp.signup') }}">
+                <div class="p-2 text-center">
+                    <img src="{{ url_for('static', filename='images/logos/inscripto-logo.svg') }}"
+                    height="150" class="border-0" alt="ikawe">
+                </div>
+                <h2> ¿Eres nuev@ por aqui? </h2>
+                <p>
+                    <strong>Importante!:</strong> Rellene el formulario prestando especial atención
+                    en los datos que introduce, sus datos de usuario están cifrados, ello implica que,
+                    en caso de perdida u olvido, no podrán ser recuperados
+                </p>
+                <br/>
+
+                {% if form_error %}
+                    <div class="row p-3">
+                        <div class="alert alert-danger" role="alert">
+                            {{ form_error }}
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if form_ok %}
+                    <div class="row p-3">
+                        <div class="alert alert-success" role="alert">
+                            {{ form_ok }}
+                        </div>
+                        <div>
+                            <p class="center">
+                                <a class="btn racoon-btn-success-light btn-lg"
+                                   href="/"
+                                   role="button">Volver a inicio</a>
+                            </p>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Su nombre o el de su perro.</label>
+                        <input type="text" name="username" class="form-control" id="username" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Por aquí un <strong>Correo electrónico</strong> (Obligatorio).</label>
+                        <input type="text" name="email" class="form-control" id="email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Su nueva <strong>Contraseña</strong> (Obligatorio).</label>
+                        <input type="password" name="password" class="form-control" id="password">
+                    </div>
+                    <button type="submit" class="btn racoon-btn-success">Registrarse ahora</button>
+                {% endif %}
+            </form>
+        </div>
+        <div class="col"> </div>
+        </div>
+</div>
+
+
+
+
+
+
+{% include "components/footer.html" %}

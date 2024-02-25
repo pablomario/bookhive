@@ -1,0 +1,82 @@
+{% include "components/head.html" %}
+{% include "components/navbar.html" %}
+
+<div class="container-fluid  ikake-jumbotron"
+     style="background-image: url('data:image/png;base64, {{ book.cover }}');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            width: 100%;">
+</div>
+<div class="container-fluid ikake-jumbotron-title"  style="z-index: 1">
+    <div class="container" style="z-index: 10">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a class="ikawe-btn-link-light" href="{{ url_for('main') | safe }}">Inicio</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a class="ikawe-btn-link-light" href="{{ url_for('dashboard_bp.page_dashboard') | safe }}">Librería</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">{{ book.book }}</li>
+          </ol>
+        </nav>
+    </div>
+    <div class="container text-center">
+        <h1 class="display-5">{{book.book}}.</h1>
+    </div>
+</div>
+
+
+<form>
+
+
+
+<div class="container-fluid ikake-jumbotron-content">
+    <div class="container p-2 racoon-container-library">
+        <div class="row">
+            <div class="col-12 p-4">
+
+                <h1 class="border-bottom p-2">
+                    <input type="text" class="form-control" id="book-title" value="{{ book.book }}">
+                </h1>
+                <div class="row">
+                    <div class="col-9">
+                        <p class="p-2">
+                            <span class="badge">
+                                 <input type="text" class="form-control" id="book-author" value="{{ book.author }}">
+                            </span>
+                            <span class="badge">
+                                 <input type="text" class="form-control" id="book-theme" value="{{ book.theme }}">
+                            </span>
+                            <span class="badge">
+                                 <input type="text" class="form-control" id="book-year" value="{{ book.year }}">
+                            </span>
+                        </p>
+                        <p class="p-2">
+                            <textarea class="form-control" id="book-summary" rows="15" cols="50">{{ book.summary }}</textarea>
+                        </p>
+                    </div>
+                    <div class="col-3 text-center">
+                        <p class="p-1">
+                            {% if book.cover %}
+                                <img src="data:image/png;base64, {{ book.cover }}" width="270" alt="{{ book.book }}">
+                            {% else %}
+                                <img src="{{ url_for('static', filename='images/no_cover.png') }}"
+                                     width="270" class="" alt="{{ book.book }}">
+                            {% endif %}
+                        </p>
+                        <p class="p-1">
+                            <button type="submit" class="btn btn-lg btn-block racoon-btn-success">Actualizar libro</button>
+                            <button type="submit" class="btn btn-lg btn-block btn-danger">Eliminar</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</form>
+
+{% include "components/footer.html" %}

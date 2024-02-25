@@ -1,0 +1,83 @@
+
+{% include "components/head.html" %}
+{% include "components/navbar.html" %}
+
+<div class="container-fluid ikawe-index-jumbo">
+    <div class="row p-5">
+        <div class="col-1"></div>
+        <div class="col-4">
+            {% include "pages/login/login.html" %}
+        </div>
+        <div class="col-7"></div>
+    </div>
+</div>
+
+<div class="container-fluid ikawe-elegance-jumbo text-center">
+    <div class="container p-5">
+        <div class="row">
+            <div class="col-3 text-center">
+                <h3><i class="fa-regular fa-clock"></i></h3>
+                <h3>Actualicaciones diarias</h3>
+                <p>Trabajamos en constante evolución de nuestros motores
+                para ofrecerte nuevos libros cada día. Desde las novelas
+                clasicas a las últimas novedades.</p>
+            </div>
+            <div class="col-1 border-end"></div>
+            <div class="col-4 p-4 text-center">
+                <h1><i class="fa-solid fa-pen-nib"></i></h1>
+                <h1>{{ g.total_books }} Historias disponibles</h1>
+                <p>Disfruta ahora de todas estas novelas de forma gratuita en tu ebook / Kindle.</p>
+            </div>
+            <div class="col-1 border-start"></div>
+            <div class="col-3">
+                <h3><i class="fa-regular fa-comment-dots"></i></h3>
+                <h3>¿Alguna sugerencia?</h3>
+                <p><strong>Ìkàwé</strong> es la primera comunidad que escucha a sus usuarios
+                    y ofrece una aplicación en constante mejora y evolución.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid ikawe-light-jumbo">
+    <div class="container p-5">
+        <div class="row">
+            <div class="col-5">
+                <div class="p-2 text-center">
+                    <img src="{{ url_for('static', filename='images/newsletter-image.png') }}"
+                    height="450" class="border-0" alt="ikawe">
+                </div>
+            </div>
+            <div class="col-6">
+                <h1 class="display-3">Cientos de Historias están esperandote</h1>
+                <p class="lead">Únete ahora a la comunidad y accede al instante a cientos de
+                    historias de todos los generos y épocas.</p>
+                <p class="lead">Descarga de forma gratuita libros en tu eBook.</p>
+                <hr class="my-4">
+                <p>Registro activo por tiempo limitado</p>
+                <p class="lead">
+                    <a class="btn racoon-btn-success-light btn-lg" href="{{ url_for('signup_bp.signup') }}"
+                       role="button">Registrate ahora!</a>
+                </p>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid ">
+    <div class="container p-5">
+        <div class="row">
+            <div class="col-3">
+            </div>
+            <div class="col p-3 text-center">
+                <div class="alert alert-info" role="alert">
+                    <strong>Nuevos libros disponibles!</strong> - Versión 20 Febrero 2024
+                </div>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
+</div>
+
+{% include "components/footer.html" %}

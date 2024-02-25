@@ -1,0 +1,46 @@
+
+{% include "components/head.html" %}
+{% include "components/navbar.html" %}
+
+
+<div class="container" style="min-height: 90vh;">
+    <div class="row p-3">
+        <div class="col"> </div>
+        <div class="col-5">
+
+            <form method="POST" action="{{ url_for('page_register') }}">
+                <div class="p-2 text-center">
+                    <img src="{{ url_for('static', filename='images/racoon.png') }}"
+                    height="150" class="border-0" alt="racooniilla">
+                </div>
+                <h2> New user? </h2>
+
+                <div class="mb-3">
+                    <label for="name" class="form-label">Real Name.</label>
+                    <input type="text" name="name" class="form-control" id="name" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="text" name="email" class="form-control" id="email">
+                </div>
+                <div class="mb-3">
+                    <label for="username" class="form-label">Login Username</label>
+                    <input type="text" name="username" class="form-control" id="username" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Login Password</label>
+                    <input type="password" name="password" class="form-control" id="password">
+                </div>
+                <button type="submit" class="btn btn-primary">Register now</button>
+            </form>
+        </div>
+        <div class="col"> </div>
+        </div>
+</div>
+
+
+
+
+
+
+{% include "components/footer.html" %}

@@ -1,0 +1,29 @@
+<div class="card racoon-card p-0 m-2" style="width: 15rem;">
+    <div class="racoon-card-header row">
+        {% if book.cover %}
+            <img src="data:image/png;base64, {{ book.cover }}"
+                 class="racoon-img-responsive"
+                 alt="{{ book.book }}">
+        {% else %}
+            <img src="{{ url_for('static', filename='images/no_cover.png') }}"
+                 class="racoon-img-responsive" alt="{{ book.book }}">
+        {% endif %}
+    </div>
+    <div class="card-body">
+        <div class="racoon-card-title">
+            <h5 class="card-title">{{ book.book }}</h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary"> {{ book.author }} </h6>
+        </div>
+        <div class="racoon-card-body">
+            <p class="card-text">{{ book.summary | truncate_text(60) }}</p>
+        </div>
+    </div>
+    <div class="card-footer d-grid gap-2 d-md-flex justify-content-md-center">
+        <a class="btn racoon-btn-link"
+           href="{{ url_for('dashboard_bp.page_book', book_id=book['_id']) | safe }}">
+            Ver ficha </a>
+        <a class="btn racoon-btn-success"
+           href="{{ url_for('dashboard_bp.page_book', book_id=book['_id']) | safe }}">
+            Descargar </a>
+    </div>
+</div>
