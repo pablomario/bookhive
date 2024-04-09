@@ -17,10 +17,11 @@ collection = db["books"]
 @require_login
 def page_dashboard():
     page = request.args.get('page', default=1, type=int)
-    books_per_page = 25
+    books_per_page = 24
     total_pages = math.ceil(g.total_books / books_per_page)
     skip = (page - 1) * books_per_page
-    books = list(collection.find({})
+    status_filter = {"status": {"$ne": -1}}
+    books = list(collection.find(status_filter)
                  .skip(skip)
                  .sort('saved_date', pymongo.DESCENDING)
                  .limit(books_per_page))

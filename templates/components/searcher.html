@@ -1,8 +1,8 @@
 
 
-<div class="bg-light p-3">
+<div class="bg-light p-3 mb-4">
     <div class="container">
-        <form method="POST" action="{{ url_for('search_bp.search') }}">
+        <form id="frmBookSearcher" method="POST" action="{{ url_for('search_bp.search') }}">
             <div class="d-flex justify-content-between">
               <div class="p-2 w-100">
                   <input class="form-control" id="keywords" name="keywords" placeholder="Nombre de Libro, Autor...">
@@ -13,11 +13,29 @@
                    </button>
               </div>
               <div class="p-2">
-                   <button class="btn racoon-btn-success">
+                   <a class="btn racoon-btn-success" id="btnRefresh">
                        <i class="fa-solid fa-arrows-rotate"></i>
-                   </button>
+                   </a>
+              </div>
+              <div class="p-2">
+                   <a class="btn btn-warning" id="btnFavorite">
+                       <i class="fa-regular fa-star"></i>
+                   </a>
               </div>
             </div>
         </form>
+        <script>
+            document.getElementById('frmBookSearcher').addEventListener('submit', function(event) {
+                var keywordsInput = document.getElementById('keywords');
+                if (!keywordsInput.value.trim()) {
+                    event.preventDefault();
+                    showToast('info','Es necesario informar un valor de búsqueda valido')
+                }
+            });
+
+            document.getElementById("btnRefresh").addEventListener("click", function() {
+                location.reload();
+            });
+        </script>
     </div>
 </div>

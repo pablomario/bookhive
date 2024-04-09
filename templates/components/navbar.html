@@ -1,9 +1,6 @@
 
-{% if custom_navbar_style %}
-  <nav class="navbar navbar-expand-lg navbar-lightœ bg-light ikawe-navbar-light">
-{% else %}
-    <nav class="navbar navbar-expand-lg navbar-lightœ bg-light">
-{% endif %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light hive-nav-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="{{ url_for('main') | safe }}">
       <img src="{{ url_for('static', filename='images/logos/inscripto.svg') }}" alt="inscripto" height="48"></a>
@@ -36,24 +33,9 @@
       </ul>
 
       {% if g.user %}
+        {% include "components/profile-panel.html" %}
+      {% endif %}
 
-      <ul class="navbar-nav">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-             role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            {{ g.user.username }}
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="{{ url_for('profile_bp.page_profile') }}">Perfil</a></li>
-            <li><a class="dropdown-item" href="#">Sugerencias</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="{{ url_for('login_bp.logout')}}">Salir</a></li>
-          </ul>
-        </li>
-      </ul>
-      <img src="{{ url_for('static', filename='images/avatares/avatar_2.png') }}"
-              height="34" alt="">
     </div>
-    {% endif %}
   </div>
 </nav>

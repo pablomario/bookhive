@@ -9,24 +9,33 @@
 </div>
 
 <div class="container-fluid racoon-library">
-    <div class="container p-2 racoon-container-library">
+    <div class="racoon-container-library">
         {% include "components/searcher.html" %}
-        <div class="row p-4">
-            {% if books %}
-                {% for current_book in books %}
-                    {% set book = current_book %}
-                    {% include "components/book_card.html" %}
-                {% endfor %}
-            {% else %}
-            <div class="text-center">
-                <p class="text-muted">
-                    <img src="{{ url_for('static', filename='images/logos/ikawe-shape.png') }}"
-                        height="126" alt="">
-                </p>
-                <h2>Lo que estás buscando no está aqui...</h2>
+
+        <div class="d-flex justify-content-around">
+
+            <div class="row row-cols-1 row-cols-md-2 g-4 d-flex justify-content-around">
+                {% if books %}
+                    {% for current_book in books %}
+                        {% set book = current_book %}
+                        {% include "components/book_card.html" %}
+                    {% endfor %}
+                {% else %}
+                    <div class="text-center">
+                        <p class="text-muted">
+                            <img src="{{ url_for('static', filename='images/logos/tardrigrado.svg') }}"
+                                height="126" alt="">
+                        </p>
+                        <h2>Lo que estás buscando no está aqui...</h2>
+                    </div>
+                {% endif %}
             </div>
-            {% endif %}
+
         </div>
+
+
+
+
         {% include "components/pagination.html" %}
     </div>
 </div>

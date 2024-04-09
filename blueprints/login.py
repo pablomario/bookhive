@@ -19,9 +19,11 @@ def login():
 
         if user_logged:
             user_logged_data = {
+                'id': str(user_logged['_id']),
                 'username': user_logged['username'],
                 'email': user_logged['email'],
-                'rol': user_logged['rol']
+                'rol': user_logged['rol'],
+                'avatar': user_logged['avatar']
             }
             session.clear()
             session['user_logged'] = user_logged_data

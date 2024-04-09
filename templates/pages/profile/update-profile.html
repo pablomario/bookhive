@@ -1,0 +1,67 @@
+
+{% include "components/head.html" %}
+{% include "components/navbar.html" %}
+
+<div class="container-fluid ikake-jumbotron d-flex flex-column">
+    <div class="container d-flex flex-grow-1 justify-content-center align-items-center">
+        <h1 class="display-5">Perfil de usuario 🐛.</h1>
+    </div>
+</div>
+
+<div class="container-fluid racoon-library">
+    <div class="container p-2 racoon-container-library">
+        {% if form_ok %}
+            <div class="row p-3">
+                <div class="alert alert-success" role="alert">
+                    {{ form_ok }}
+                </div>
+            </div>
+            <script>
+                showToast('info', '{{ form_ok }}');
+            </script>
+        {% endif %}
+        {% if form_error %}
+            <div class="row p-3">
+                <div class="alert alert-warning" role="alert">
+                    {{ form_error }}
+                </div>
+            </div>
+            <script>
+                showToast('info', '{{ form_error }}');
+            </script>
+        {% endif %}
+        <form class="p-3" action="/profile/edit-profile" method="POST">
+            <div class="row p-5">
+                <div class="col-1"></div>
+                <div class="col-4">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <h4>Esto es lo que sabemos de ti <strong>{{g.user.username}}</strong></h4>
+                        <img height="196" alt="profile_avatar"
+                             src="{{ url_for('static', filename='images/avatares/'+ g.user.avatar) }}">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group p-2">
+                        <label for="username">Nombre de usuario</label>
+                        <input type="text" class="form-control"
+                               name="username" id="username" value="{{g.user.username}}">
+                    </div>
+                    <div class="form-group p-2">
+                        <label for="email">Correo electronico</label>
+                        <input type="email" class="form-control" id="email" name="email" value={{g.user.email}}>
+                    </div>
+                    <div class="form-group p-2">
+                        <label for="email">Contraseña</label>
+                        <input type="password" class="form-control" id="password" name="password">
+                    </div>
+                    <div class="form-group p-2">
+                        <button type="submit" class="btn racoon-btn-success">Actualizar Perfil</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+{% include "components/footer.html" %}

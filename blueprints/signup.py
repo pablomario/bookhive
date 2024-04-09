@@ -21,6 +21,11 @@ def signup():
             return render_template('pages/signup/register.html',
                                    form_error=error_message)
 
+        if collection.find_one({"email": email}):
+            error_message = 'El email ya está registrado. Por favor, utiliza otro.'
+            return render_template('pages/signup/register.html',
+                                   form_error=error_message)
+
         new_user = {
             "rol": "user",
             "avatar": "",
@@ -46,7 +51,3 @@ def signup():
 
     return render_template('pages/signup/register.html')
 
-
-@signup_bp.route('/confirmation')
-def signup_confirm():
-    return render_template('pages/signup/confirm.html')

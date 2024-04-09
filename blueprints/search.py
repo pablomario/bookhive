@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, request, g
 from pymongo import MongoClient
 from bson import ObjectId
 from .decorators import require_login
-import math, re
+import re
 
 search_bp = Blueprint('search_bp', __name__)
 
@@ -16,23 +16,25 @@ collection = db["books"]
 @require_login
 def search():
     if request.method == 'POST':
-        keywords = request.form['keywords']
+        keywords = request.form.get('keywords').strip()
 
-        regex_pattern = re.compile(f'.*{keywords}.*', re.IGNORECASE)
-        search_result = collection.find({
-            "$or": [
-                {"book": {"$regex": regex_pattern}},
-                {"author": {"$regex": regex_pattern}}
-            ]
-        })
+        if len(keywords) > 0:
+            print("Valor de keywords:", len(keywords))
+            regex_pattern = re.compile(f'.*{keywords}.*', re.IGNORECASE)
+            search_result = collection.find({
+                "$or": [
+                    {"book": {"$regex": regex_pattern}},
+                    {"author": {"$regex": regex_pattern}}
+                ]
+            })
 
-        books = list(search_result)
-        for book in books:
-            book['_id'] = str(book['_id'])
-            book_cover = getCoverBook(book['cover_reference'])
-            book['cover'] = book_cover['book_cover']
-        return render_template('pages/search/search-result.html',
-                               books=books)
+            books = list(search_result)
+            for book in books:
+                book['_id'] = str(book['_id'])
+                book_cover = getCoverBook(book['cover_reference'])
+                book['cover'] = book_cover['book_cover']
+            return render_template('pages/search/search-result.html',
+                                   books=books)
 
 
 def getCoverBook(book_id):

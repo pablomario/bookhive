@@ -1,8 +1,8 @@
 
 .ikawe-index-jumbo {
-    margin-top: -60px;
-    min-height: 50vh;
-    padding-top: 90px;
+    margin-top: -140px;
+    min-height: 80vh;
+    padding-top: 20vh;
     background-image: url(../images/page-header.jpg);
     background-repeat: no-repeat;
     background-position: right;
@@ -10,21 +10,21 @@
 }
 
 .ikawe-light-jumbo {
-    background: #F5F557;
-    background: linear-gradient(127deg, #F5F557, #13C8C6);
-    padding: 100px;
+    background: #00162b;
+    padding: 50px;
+    color: white;
+}
+
+.hive-profile {
+    background: #023047;
+    padding-top: 12em;
+    padding-bottom: 12em;
 }
 
 .ikawe-elegance-jumbo {
     background-color: #fffbf7;
     color: black;
     padding: 100px;
-}
-
-
-.ikawe-navbar-light {
-    background-color: #ffffffa1!important;
-    backdrop-filter: blur(3px);
 }
 
 .racoon-index-login {
@@ -77,23 +77,6 @@ input::placeholder {
     background-color: #fff;
 }
 
-.racoon-card {
-    background: rgb(255, 255, 255);
-    border: 1px solid transparent;
-}
-
-.racoon-card:hover {
-    box-shadow: 0px 0px 18px 3px rgba(0,0,0,0.1);
-    -webkit-box-shadow: 0px 0px 18px 3px rgba(0,0,0,0.1);
-    -moz-box-shadow: 0px 0px 18px 3px rgba(0,0,0,0.1);
-}
-
-
-.racoon-card-header {
-    height: 320px;
-    padding-top: 20px;
-}
-
 .racoon-img-responsive{
     height: 99%;
     width: auto;
@@ -112,12 +95,6 @@ input::placeholder {
     word-break: break-all;
     border-bottom: 1px solid #c7c7c7;
     padding-bottom: 10px;
-}
-
-.racoon-card-body {
-    height: 65px;
-    color: #6a6a6a;
-    font-size: small;
 }
 
 .racoon-btn-link {
@@ -175,4 +152,80 @@ input::placeholder {
     color: black;
     border-radius: 0%;
     font-weight: inherit;
+}
+
+/** ------- NAV STYLE  ------- */
+
+
+.hive-nav-light {
+    background-color: #ffffffa1!important;
+    backdrop-filter: blur(3px);
+    margin: 15px 15px;
+    border-radius: 5px;
+    z-index: 100;
+}
+
+
+/** ------- BOOK DETAIL STYLE  ------- */
+
+.hive-detail-jumbo {
+    margin-top: -140px;
+    min-height: 55vh;
+    padding-top: 20vh;
+}
+
+
+
+/** ------- CARD STYLE  ------- */
+
+.hive-card {
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3); 
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
+}
+
+.hive-card-head {
+    text-align: center;
+}
+
+.hive-card-head .hive-card-image {
+    height: 260px;
+    width: 175px;
+    margin-top: -1rem;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.6); 
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.6); 
+}
+
+.hive-card-body {
+    text-align: center;
+}
+
+.hive-card-body h5 {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: black;
+    font-size: smaller;
+}
+
+.hive-card-body h6 {
+    color: rgb(76, 76, 76);
+    font-size: smaller;
+}
+
+.hive-card-footer {
+    margin-left: -12px;
+    margin-right: -12px;
+    background: #023047;
+    text-align: center;
+}
+
+.hive-card-footer a{
+    color:#fff;
+    text-transform: uppercase;
+    font-weight: bolder;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.hive-card-footer a:hover{
+    color:#dedd46;
 }

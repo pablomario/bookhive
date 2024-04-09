@@ -6,6 +6,7 @@ from blueprints.dashboard import dashboard_bp
 from blueprints.profile import profile_bp
 from blueprints.search import search_bp
 from blueprints.admin.editBook import edit_book_bp
+from blueprints.api.api import api_bp
 
 # APP CONFIGURATION
 app = Flask(__name__)
@@ -18,6 +19,7 @@ app.register_blueprint(dashboard_bp, url_prefix='/dashboard')
 app.register_blueprint(search_bp, url_prefix='/search')
 app.register_blueprint(profile_bp, url_prefix='/profile')
 app.register_blueprint(edit_book_bp, url_prefix='/admin/edit')
+app.register_blueprint(api_bp, url_prefix='/api')
 
 
 total_books = None
@@ -25,8 +27,7 @@ total_books = None
 
 @app.route('/', methods=['GET'])
 def main():
-    return render_template('index.html',
-                           custom_navbar_style=True)
+    return render_template('index.html')
 
 
 @app.before_request

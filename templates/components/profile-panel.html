@@ -1,0 +1,16 @@
+<ul class="navbar-nav">
+    <li class="nav-item dropdown">
+      <a class="btn dropdown-toggle" data-bs-toggle="dropdown"
+         data-bs-display="static" aria-expanded="false">
+        <img src="{{ url_for('static', filename='images/avatares/'+ g.user.avatar) }}"
+          height="34" alt="">
+      </a>
+      <ul class="dropdown-menu dropdown-menu-lg-end"
+          aria-labelledby="navbarDropdown">
+        <li><a class="dropdown-item" href="{{ url_for('profile_bp.page_profile') }}">Perfil</a></li>
+        <li><a class="dropdown-item" href="#">Sugerencias</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="{{ url_for('login_bp.logout')}}">Salir</a></li>
+      </ul>
+    </li>
+</ul>
