@@ -12,6 +12,36 @@ collection_user = db["users"]
 collection_books = db["books"]
 
 
+@api_bp.route('/v1/books/detail/', methods=['GET'])
+@require_login
+def getBookDetail():
+    book_id = request.json.get('book_id')
+    book = collection_books.find_one({'_id': ObjectId(book_id)})
+    book_cover = getCoverBook(book['cover_reference'])
+    book['cover'] = book_cover['book_cover']
+    if book:
+        return book
+    else:
+        return jsonify({'error': 'Libro no encontrado'})
+
+
+@api_bp.route('/v1/books/latest/', methods=['GET'])
+@require_login
+def getLatestBooks():
+    recent_books = collection_books.find().sort('saved_date', -1).limit(7)
+    recent_books_list = list(recent_books)
+    for book in recent_books_list:
+        book['_id'] = str(book['_id'])  # Convertir ObjectId a cadena
+        book_cover = getCoverBook(book['cover_reference'])
+        book['cover'] = book_cover['book_cover']
+    return recent_books_list
+
+
+def getCoverBook(book_id):
+    cover_collection = db['books_cover']
+    return cover_collection.find_one({"_id": ObjectId(book_id)})
+
+
 @api_bp.route('/v1/books/favorite/add', methods=['POST'])
 @require_login
 def addBookToFavorites():

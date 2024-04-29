@@ -2,25 +2,35 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light hive-nav-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="{{ url_for('main') | safe }}">
-      <img src="{{ url_for('static', filename='images/logos/inscripto.svg') }}" alt="inscripto" height="48"></a>
+
     {% if g.user %}
+    <a class="navbar-brand" href="{{ url_for('dashboard_bp.page_dashboard')}}">
+      <img src="{{ url_for('static', filename='images/logos/tardrigrado.svg') }}" alt="inscripto" height="48">
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
             aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-     {% endif %}
+    {% else %}
+    <a class="navbar-brand" href="{{ url_for('main') | safe }}">
+      <img src="{{ url_for('static', filename='images/logos/tardrigrado.svg') }}" alt="inscripto" height="48">
+    </a>
+   {% endif %}
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         {% if g.user %}
           <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('dashboard_bp.page_dashboard')}}">Mi biblioteca</a>
+            <a class="nav-link" href="{{ url_for('dashboard_bp.page_dashboard')}}">Biblioteca</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled" href="{{ url_for('dashboard_bp.page_dashboard')}}">
-              Petición de Libros (Próximamente)
+            <a class="nav-link" href="{{ url_for('dashboard_bp.page_dashboard')}}">
+              <i class="fa-regular fa-star"></i> Favoritos
             </a>
+          </li>
+          <li class="nav-item">
+             <!-- Agregar buscador -->
           </li>
         {% else %}
           <li class="nav-item">

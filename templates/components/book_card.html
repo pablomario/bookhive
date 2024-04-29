@@ -1,5 +1,5 @@
 
-<div class="card m-2 mb-4 mt-4 hive-card" id="book_{{ book._id }}" style="width: 13rem;">
+<div class="card m-3 mb-4 mt-4 hive-card" id="book_{{ book._id }}" style="width: 13rem;">
     <div class="hive-card-head">
         <a href="{{ url_for('dashboard_bp.page_book', book_id=book['_id']) | safe }}">
         {% if book.cover %}

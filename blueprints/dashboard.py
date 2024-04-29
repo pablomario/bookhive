@@ -3,6 +3,7 @@ import pymongo
 from bson import ObjectId
 from flask import Blueprint, render_template, request, g, send_from_directory
 from pymongo import MongoClient
+from blueprints.api.api import getLatestBooks
 from .decorators import require_login
 
 dashboard_bp = Blueprint('dashboard_bp', __name__)
@@ -17,9 +18,12 @@ collection = db["books"]
 @require_login
 def page_dashboard():
     page = request.args.get('page', default=1, type=int)
-    books_per_page = 24
+    books_per_page = 28
     total_pages = math.ceil(g.total_books / books_per_page)
-    skip = (page - 1) * books_per_page
+    if page == 1:
+        skip = 7
+    else:
+        skip = (page - 1) * books_per_page
     status_filter = {"status": {"$ne": -1}}
     books = list(collection.find(status_filter)
                  .skip(skip)
@@ -30,10 +34,12 @@ def page_dashboard():
         book['_id'] = str(book['_id'])
         book_cover = getCoverBook(book['cover_reference'])
         book['cover'] = book_cover['book_cover']
+    latest_books = getLatestBooks()
     return render_template('pages/dashboard/dashboard.html',
                            books=books,
                            page=page,
-                           total_pages=total_pages)
+                           total_pages=total_pages,
+                           latest_books=latest_books)
 
 
 def getCoverBook(book_id):
